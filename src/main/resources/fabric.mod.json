@@ -1,29 +1,32 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "nbs",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Note Block Player",
+  "description": "A Mod that can Play .nbs Files in Minecraft",
   "authors": [
-    "Me!"
+    "Pancake"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://mgnet.work/",
+    "sources": "https://github.com/MCPfannkuchenYT/NBS-Fabric"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "GPTv3",
+  "icon": "",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      
+    ],
+    "client": [
+		"de.pfannekuchen.nbs.NoteBlockPlayer"    
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "nbs.mixins.json"
   ],
 
   "depends": {

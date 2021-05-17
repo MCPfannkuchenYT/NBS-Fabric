@@ -54,12 +54,14 @@ public abstract class MixinMinecraftClient extends ReentrantThreadExecutor<Runna
 		/* Play Button */
 		if (NoteBlockPlayer.playKeybinding.wasPressed()) {
 			/* Start a new Thread with a File-Picker */
-			if (window.isFullscreen()) window.toggleFullscreen(); // Toggle off Fullscreen
+			boolean wasFullscreen;
+			if (wasFullscreen = window.isFullscreen()) window.toggleFullscreen(); // Toggle off Fullscreen
 			new Thread(() -> {
 				FileDialog dialog = new FileDialog((Frame) null, "Select File to Open", FileDialog.LOAD);
 			    dialog.setMultipleMode(false);
 			    dialog.setVisible(true);
 			    if (dialog.getFiles().length == 1) {
+			    	if (wasFullscreen && !window.isFullscreen()) window.toggleFullscreen();
 			    	// Load File
 			    	final Song currentSong = NoteBlockPlayer.loadSong(getInputStream(dialog.getFiles()[0]), dialog.getFiles()[0]);
 			    	if (currentSong == null) return;
